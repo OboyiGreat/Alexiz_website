@@ -3,107 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TastyBite - Food Restaurant</title>
+    <title>FitLife Gym - Unleash Your Strength</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 1rem 2rem;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FF4D4D;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: #000000;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 2rem;
         }
-        h1 {
-            color: orange;
-            font-size: 48px;
-            margin: 20px 0;
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
-        p {
-            color: Blue;
-            font-size: 18px;
-            margin: 10px 0;
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
-        .food-container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin: 20px;
+
+        .cta-button {
+            background-color: #FF4D4D;
+            color: #FFFFFF;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .food-image {
-            max-width: 300px;
-            height: auto;
+
+        .cta-button:hover {
+            background-color: #e63939;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #F5F5F5;
+            color: #333333;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FF4D4D;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #FF4D4D;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            color: #333333;
+            padding: 2rem;
+            width: 300px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
-        .order-button {
-            background-color: orange;
-            color: white;
-            padding: 10px 20px;
+
+        .service-card h3 {
+            color: #FF4D4D;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FF4D4D;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 0.8rem;
+            font-size: 1rem;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+
+        .contact textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact button {
+            background-color: #FF4D4D;
+            color: #FFFFFF;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .order-button:hover {
-            background-color: #e69500;
+
+        .contact button:hover {
+            background-color: #e63939;
         }
-        .menu-section {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin: 20px;
-            width: 80%;
-            max-width: 600px;
+
+        /* Footer Section */
+        footer {
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 2rem;
+            text-align: center;
         }
-        .menu-section h2 {
-            color: orange;
-            font-size: 28px;
-            margin-bottom: 20px;
+
+        footer p {
+            margin-bottom: 1rem;
         }
-        .menu-item {
+
+        .social-links {
             display: flex;
-            justify-content: space-between;
-            color: #333;
-            font-size: 16px;
-            margin: 10px 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            justify-content: center;
+            gap: 1.5rem;
         }
-        .menu-item span {
-            font-weight: bold;
-            color: orange;
+
+        .social-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #FF4D4D;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .service-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1rem;
+                font-size: 1rem;
+            }
+
+            .about h2,
+            .services h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>TastyBite</h1>
-    <p>Enjoy our delicious dishes made with love!</p>
-    <div class="food-container">
-        <img src="https://via.placeholder.com/300x200/ffffff/000000?text=Delicious+Food" alt="Delicious Dish" class="food-image">
-    </div>
-    <div class="menu-section">
-        <h2>Our Menu</h2>
-        <div class="menu-item">
-            <p>Grilled Chicken Salad</p>
-            <span>$12.99</span>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>FitLife Gym</h1>
         </div>
-        <div class="menu-item">
-            <p>Classic Cheeseburger</p>
-            <span>$9.99</span>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Unleash Your Inner Strength</h2>
+            <p>Join FitLife Gym and transform your body and mind today!</p>
+            <a href="#contact" class="cta-button">Join Now</a>
         </div>
-        <div class="menu-item">
-            <p>Pasta Primavera</p>
-            <span>$14.50</span>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Our Mission</h2>
+        <p>At FitLife Gym, we are dedicated to empowering you to achieve your fitness goals. With state-of-the-art equipment, expert trainers, and a supportive community, we help you build strength, confidence, and a healthier lifestyle.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Personal Training</h3>
+                <p>Work one-on-one with our certified trainers to create a personalized fitness plan tailored to your goals.</p>
+            </div>
+            <div class="service-card">
+                <h3>Group Classes</h3>
+                <p>Join our high-energy group classes, including yoga, Zumba, and HIIT, for a fun and motivating workout.</p>
+            </div>
+            <div class="service-card">
+                <h3>Strength Training</h3>
+                <p>Build muscle and power with our top-tier weightlifting equipment and dedicated strength programs.</p>
+            </div>
         </div>
-        <div class="menu-item">
-            <p>Chocolate Lava Cake</p>
-            <span>$6.99</span>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Ready to start your fitness journey? Get in touch with us!</p>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 FitLife Gym. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
         </div>
-    </div>
-    <button class="order-button">Order Now</button>
+    </footer>
 </body>
 </html>
